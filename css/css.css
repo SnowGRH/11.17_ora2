@@ -1,13 +1,14 @@
 body{
     padding: 0;
     margin: 0;
+    background-color: gray;
 }
 *{
     box-sizing: border-box;
     /*Az elem mérete=widt+padding+border*/
 }
 main,header,nav,article,aside,footer{
-    border: 1px solid gray;
+    border: 1px solid black;
 }
 main{
     display: grid;
@@ -16,14 +17,16 @@ main{
 }
 header{
     grid-area: h ;
+    font-size: 30px;
+    text-align: center;
 }
 nav{
     grid-area: n ;
+
 }
 article{
     display: grid;
-    grid-template-columns:repeat(7,2fr);
-    background-color: gray;
+    grid-template-columns: 2fr  2fr 2fr 2fr ;
     gap: 10px;
     grid-area: a ;
 }
@@ -32,16 +35,72 @@ aside{
 }
 footer{
     grid-area: f;
+    font-size: 20px;
+    text-align: right;
 }
-img{
+.kep{
     width: 100%;
 }
 article>div{
+    padding: 5px;
     border-radius: 5px;
+    border: 2px solid black;
 }
-@media  screen and (max-width:60px) {
+nav ul{
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    list-style-type: none;
+}
+button{
+    background-color: gray;
+    cursor: pointer;
+}
+aside>div{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+article>div>p{
+    text-align: right;
+}
+a{
+    padding: 5px;
+}
+a:link{
+    text-decoration: none;
+}
+a:hover{
+    background-color: black;
+    color: white;
+  }
+  article>div>div{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 5px;
+    text-align: right;
+  }
+@media  screen and (max-width:750px) {
     main{
-    grid-template-columns: 3fr 2fr;
+        grid-template-areas: "h h h""n n n""a a as""f f f";
+    }
+    article{
+        grid-template-columns: 2fr  2fr;
+    }
+}
+@media  screen and (max-width:600px) {
+    main{
     grid-template-areas: " h h""n n"" a as"" f f ";
+    }
+    nav ul{
+        grid-template-columns: 1fr;
+    }
+
+}
+@media  screen and (max-width:450px) {
+    main{
+        grid-template-columns: 1fr;
+        grid-template-areas: "h""n""as""a ""f";
+    }
+    article{
+        grid-template-columns: 1fr;
     }
 }
